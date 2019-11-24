@@ -1,17 +1,10 @@
-<div ng-controller='StoreFrontComponent' ng-repeat='guitar in Guitars'>
-  <div class="container">
-    <div class="overlay">
-      <div class = "items"></div>
-      <div class = "items head">
-        <p></p>
-        <hr>
-      </div>
-      <div class = "items price">
-        <p class="new">${{guitar.Price}}</p>
-      </div>
-      <div class="items cart">
-        <i class="fa fa-shopping-cart"></i>
-        <span>ADD TO CART</span>
+<div class='row d-flex justify-content-around mx-0'>
+  <div *ngFor='let guitar of Guitars' class='col-lg-4 my-5'>
+    <div class="card" style="width: 18rem;">
+      <img src="{{guitar.Image}}" class="card-img-top" alt="{{guitar.Name}}">
+      <div class="card-body">
+        <h4 class="card-text">{{guitar.Name}}</h4>
+        <h5 class="card-text">${{guitar.Price}}</h5>
       </div>
     </div>
   </div>
