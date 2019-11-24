@@ -1,11 +1,15 @@
 <div class='row d-flex justify-content-around mx-0'>
-  <div *ngFor='let guitar of Guitars' class='col-lg-4 my-5'>
-    <div class="card" style="width: 18rem;">
-      <img src="{{guitar.Image}}" class="card-img-top" alt="{{guitar.Name}}">
-      <div class="card-body">
-        <h4 class="card-text">{{guitar.Name}}</h4>
-        <h5 class="card-text">${{guitar.Price}}</h5>
-      </div>
-    </div>
+  <div *ngFor='let product of activeProduct' class='col-lg-4 my-5'>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{product.Name}}</mat-card-title>
+        <mat-card-subtitle>${{product.Price}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{product.Image}}" alt="{{product.Name}}">
+      <mat-card-actions>
+        <button mat-button>Add To Cart</button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
