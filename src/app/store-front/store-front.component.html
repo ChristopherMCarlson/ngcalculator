@@ -1,1 +1,18 @@
-<p>store-front works!</p>
+<div ng-controller='StoreFrontComponent' ng-repeat='guitar in Guitars'>
+  <div class="container">
+    <div class="overlay">
+      <div class = "items"></div>
+      <div class = "items head">
+        <p></p>
+        <hr>
+      </div>
+      <div class = "items price">
+        <p class="new">${{guitar.Price}}</p>
+      </div>
+      <div class="items cart">
+        <i class="fa fa-shopping-cart"></i>
+        <span>ADD TO CART</span>
+      </div>
+    </div>
+  </div>
+</div>
