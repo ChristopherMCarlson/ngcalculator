@@ -9,8 +9,8 @@
           <span class="example-spacer"></span>
           <span>Angular Storefront</span>
           <span class="example-spacer"></span>
-          <mat-icon *ngIf="cart.activeCart.length == 0">shopping_cart</mat-icon>
-          <mat-icon *ngIf="cart.activeCart.length > 0" matBadge="{{cart.activeCart.length}}" matBadgeColor="warn">shopping_cart</mat-icon>
+          <button type="button" mat-icon-button *ngIf="cart.activeCart.length == 0"><mat-icon>shopping_cart</mat-icon></button>
+          <button type="button" mat-icon-button *ngIf="cart.activeCart.length > 0" matBadge="{{cart.activeCart.length}}" matBadgeColor="warn" (click)="openCart()"><mat-icon>shopping_cart</mat-icon></button>
         </mat-toolbar-row>
       </mat-toolbar>
     <mat-drawer #drawer class="example-sidenav" mode="side">
@@ -24,8 +24,8 @@
   <div *ngFor='let product of activeProduct' class='col-lg-2 my-5'>
     <mat-card class="example-card">
       <img mat-card-image src="{{product.Image}}" alt="{{product.Name}}">
-      <mat-card-title>{{product.Name}}</mat-card-title>
-      <mat-card-title>${{product.Price}}</mat-card-title>
+      <p>{{product.Name}}</p>
+      <p>${{product.Price}}</p>
       <mat-card-actions>
         <button mat-button (click) = "addToCart(product.Id)">Add To Cart</button>
       </mat-card-actions>

@@ -1,4 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { cartDialog } from '../cartDialog/cartDialog.component';
+
 
 @Component({
   selector: 'app-store-front',
@@ -27,7 +30,7 @@ export class StoreFrontComponent implements OnInit {
       Image: '../../assets/GibsonFirebird.jpg'
     },
     {
-      Name: 'B C Rich Mockingbird',
+      Name: 'BC Rich Mockingbird',
       Price: 1499.00,
       Id: 'guitE5N3C',
       Quantity: 1,
@@ -72,8 +75,10 @@ export class StoreFrontComponent implements OnInit {
     this.updatedCart.emit(this.cart);
     console.log(this.cart);
   }
-
-
+  private openCart(){
+    console.log('Open cart click is registered')
+  }
+  shoppingCartRef: MatDialogRef<cartDialog>;
 
   constructor() { }
 
