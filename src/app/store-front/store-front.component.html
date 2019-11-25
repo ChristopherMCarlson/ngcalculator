@@ -1,15 +1,35 @@
+<mat-drawer-container>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <div class="example-sidenav-content">
+            <button type="button" mat-icon-button (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+          <span class="example-spacer"></span>
+          <span>Angular Storefront</span>
+          <span class="example-spacer"></span>
+          <mat-icon *ngIf="cart.activeCart.length == 0">shopping_cart</mat-icon>
+          <mat-icon *ngIf="cart.activeCart.length > 0" matBadge="{{cart.activeCart.length}}" matBadgeColor="warn">shopping_cart</mat-icon>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
 <div class='row d-flex justify-content-around mx-0'>
-  <div *ngFor='let product of activeProduct' class='col-lg-4 my-5'>
+  <div *ngFor='let product of activeProduct' class='col-lg-2 my-5'>
     <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{product.Name}}</mat-card-title>
-        <mat-card-subtitle>${{product.Price}}</mat-card-subtitle>
-      </mat-card-header>
       <img mat-card-image src="{{product.Image}}" alt="{{product.Name}}">
+      <mat-card-title>{{product.Name}}</mat-card-title>
+      <mat-card-title>${{product.Price}}</mat-card-title>
       <mat-card-actions>
         <button mat-button (click) = "addToCart(product.Id)">Add To Cart</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+</mat-drawer-container>

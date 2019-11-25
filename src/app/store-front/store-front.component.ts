@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-store-front',
@@ -56,6 +56,7 @@ export class StoreFrontComponent implements OnInit {
     },
   ]
   activeProduct = this.Guitars
+  @Output() updatedCart = new EventEmitter<Object>();
   private addToCart(Id){
     if(this.cart.activeCart.find(product => product.Id === Id)){
       this.cart.activeCart.find(product => product.Id === Id).Quantity += 1;
@@ -68,8 +69,10 @@ export class StoreFrontComponent implements OnInit {
       newTotal += product.Price;
     });
     this.cart.total = newTotal;
+    this.updatedCart.emit(this.cart);
     console.log(this.cart);
   }
+
 
 
   constructor() { }

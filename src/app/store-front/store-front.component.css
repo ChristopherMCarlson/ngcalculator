@@ -1,11 +1,25 @@
-.card {
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
-.card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: all .4s linear;
+.example-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }
